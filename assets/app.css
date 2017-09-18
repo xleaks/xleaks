@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * Bootstrap v4.0.0-beta (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors
@@ -5709,6 +5710,8 @@ main {
   text-align: center;
   text-transform: uppercase;
   margin: 0 10px; }
+  .uploadButton.pay {
+    display: none; }
 
 .how {
   background-color: #ffffff;
@@ -5753,11 +5756,31 @@ main {
   font-size: 0.7rem;
   text-decoration: underline; }
 
+.or {
+  display: none;
+  font-weight: bold;
+  text-align: center; }
+
+.or-pay {
+  background: none;
+  color: black;
+  text-decoration: underline;
+  font-size: 0.8rem;
+  padding: 10px; }
+
 .face {
   border: 3px solid #fff;
-  padding: 20px;
-  border-radius: 6px;
-  border-style: dashed; }
+  border-radius: 6px; }
+  .face::after {
+    content: '\41B\438\446\43E   \43E\431\43D\430\440\443\436\435\43D\43E. \41E\43F\43B\430\442\438\442\435   \43F\43E\438\441\43A';
+    background-color: black;
+    border: 1px solid white;
+    color: #fff;
+    font-size: 10px;
+    bottom: -10px;
+    width: 200px;
+    left: 0;
+    position: absolute; }
 
 .picture-container {
   position: relative;
