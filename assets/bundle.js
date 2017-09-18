@@ -7119,7 +7119,26 @@ var plotRectangle = function plotRectangle(x, y, w, h, img) {
   }).insertAfter(img);
 };
 
-var tracker = new _jstracking2.default.ObjectTracker("face");
+var plotLandmark = function plotLandmark(x, y) {
+  var radius = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 2;
+  var color = arguments[3];
+
+  (0, _jquery2.default)('<div>', {
+    'class': 'dot',
+    'css': {
+      'position': 'absolute',
+      'left': img.offsetLeft + x + 'px',
+      'top': img.offsetTop + y + 'px',
+      'width': radius * 2 + 'px',
+      'height': radius * 2 + 'px'
+    }
+  }).insertAfter(img);
+};
+
+var tracker = new _jstracking2.default.ObjectTracker('face');
+tracker.setInitialScale(4);
+tracker.setStepSize(1);
+tracker.setEdgesDensity(0.1);
 
 var showNoFace = function showNoFace() {};
 
@@ -7140,16 +7159,13 @@ var showPay = function showPay() {
         setTimeout(function () {
           _jstracking2.default.track(document.getElementById('image-upload'), tracker);
           tracker.on('track', function (event) {
-            if (event.data.length === 0) {
-              showNoFace();
-              return;
-            }
+            if (!event.data) return;
             event.data.forEach(function (rect) {
               plotRectangle(rect.x, rect.y, rect.width, rect.height, document.getElementById('image-upload'));
             });
             showPay();
           });
-        }, 1000);
+        }, 0);
       };
 
       reader.readAsDataURL(input.files[0]);
