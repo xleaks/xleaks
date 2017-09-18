@@ -7136,9 +7136,6 @@ var plotLandmark = function plotLandmark(x, y) {
 };
 
 var tracker = new _jstracking2.default.ObjectTracker('face');
-tracker.setInitialScale(4);
-tracker.setStepSize(1);
-tracker.setEdgesDensity(0.1);
 
 var showNoFace = function showNoFace() {
   (0, _jquery2.default)('.no-face').show();
@@ -7155,6 +7152,10 @@ var showPay = function showPay() {
     var input = this;
     (0, _jquery2.default)('.face').remove();
     (0, _jquery2.default)('.no-face').hide();
+    (0, _jquery2.default)('.or').hide();
+    (0, _jquery2.default)('#pay').hide();
+    (0, _jquery2.default)('#upload-btn').removeClass('or-pay');
+
     if (input.files && input.files[0]) {
       var reader = new FileReader();
       reader.onload = function (e) {
