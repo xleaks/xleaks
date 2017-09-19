@@ -7139,6 +7139,7 @@ var tracker = new _jstracking2.default.ObjectTracker('face');
 
 var showNoFace = function showNoFace() {
   (0, _jquery2.default)('.no-face').show();
+  yaCounter45992091.reachGoal('get_result_failed');
 };
 
 var showPay = function showPay() {
@@ -7146,6 +7147,15 @@ var showPay = function showPay() {
   (0, _jquery2.default)('#pay').show();
   (0, _jquery2.default)('#upload-btn').addClass('or-pay');
 };
+
+(0, _jquery2.default)('#pay').on('click', function () {
+  (0, _jquery2.default)("#modal-content,#modal-background,.modal-me").toggleClass("active");
+  yaCounter45992091.reachGoal('pay');
+});
+
+(0, _jquery2.default)('#modal-close').on('click', function () {
+  (0, _jquery2.default)("#modal-content,#modal-background,.modal-me").toggleClass("active");
+});
 
 (0, _jquery2.default)(window).ready(function () {
   (0, _jquery2.default)("#image-input").change(function () {
@@ -7159,6 +7169,7 @@ var showPay = function showPay() {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
       reader.onload = function (e) {
+        yaCounter45992091.reachGoal('photo_uploaded');
         (0, _jquery2.default)('#image-upload').attr('src', e.target.result);
         setTimeout(function () {
           _jstracking2.default.track(document.getElementById('image-upload'), tracker);
@@ -7168,6 +7179,7 @@ var showPay = function showPay() {
               return;
             }
             event.data.forEach(function (rect) {
+              yaCounter45992091.reachGoal('get_result');
               plotRectangle(rect.x, rect.y, rect.width, rect.height, document.getElementById('image-upload'));
             });
             showPay();
