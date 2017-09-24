@@ -5587,12 +5587,18 @@ body {
     height: 100%; }
 
 main {
-  padding-bottom: 100px; }
+  padding-bottom: 100px;
+  position: relative; }
 
 .actionView {
   padding: 10px;
   position: relative;
   margin-top: -40px; }
+  @media only screen and (min-width: 768px) {
+    .actionView {
+      left: 10px;
+      top: 50px;
+      position: absolute; } }
   .actionView__ribbon {
     max-width: 600px;
     height: 20px;
@@ -5635,6 +5641,9 @@ main {
   font-weight: 500;
   text-align: center;
   color: #323232; }
+  @media only screen and (min-width: 768px) {
+    .main-text {
+      margin-top: 40px; } }
 
 .stats {
   text-align: center;
@@ -5711,9 +5720,11 @@ main {
   padding: 20px;
   text-align: center;
   text-transform: uppercase;
-  margin: 0 10px; }
+  max-width: 300px;
+  margin: 0 auto; }
   .uploadButton.pay {
-    display: none; }
+    display: none;
+    box-shadow: 0 0 21px 0 rgba(0, 0, 0, 0.18); }
 
 .how {
   background-color: #ffffff;
@@ -5839,7 +5850,9 @@ input[type="file"] {
   position: absolute;
   top: 33%;
   width: 100%;
-  z-index: 1000; }
+  z-index: 1000;
+  margin: 0 auto;
+  max-width: 480px; }
 
 #modal-background.active, #modal-content.active {
   display: block; }
@@ -5855,10 +5868,71 @@ input[type="file"] {
   right: 0;
   display: none; }
   .modal-me.active {
-    display: block; }
+    justify-content: center;
+    display: flex; }
   .modal-me__text {
     padding: 20px;
     text-align: center;
     font-size: 1.2rem; }
+
+.modal-pay {
+  text-align: center; }
+
+.arrow {
+  text-align: center;
+  padding: 10px; }
+
+.bounce {
+  -webkit-animation-name: bounce;
+  -moz-animation-name: bounce;
+  -o-animation-name: bounce;
+  animation-name: bounce; }
+
+.animated {
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -ms-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s; }
+
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0); }
+  40% {
+    -webkit-transform: translateY(-30px); }
+  60% {
+    -webkit-transform: translateY(-15px); } }
+
+@-moz-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0); }
+  40% {
+    -moz-transform: translateY(-30px); }
+  60% {
+    -moz-transform: translateY(-15px); } }
+
+@-o-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -o-transform: translateY(0); }
+  40% {
+    -o-transform: translateY(-30px); }
+  60% {
+    -o-transform: translateY(-15px); } }
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); }
+  40% {
+    transform: translateY(-30px); }
+  60% {
+    transform: translateY(-15px); } }
 
 /*# sourceMappingURL=app.css.map*/
